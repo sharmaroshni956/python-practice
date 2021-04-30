@@ -1,0 +1,217 @@
+TASK 4
+TRADITIONAL FUNCTIONS,ANONYMOUS FUNCTIONS &
+HIGHER ORDER FUNCTIONS
+
+
+#1. Write a program to reverse a string.
+#Sample input: “1234abcd”
+#Expected output: “dcba4321”
+
+str = "1234abcd"
+str1 = str[::-1]
+print(str1)
+
+
+#2. Write a function that accepts a string and prints the number of uppercase letters and 
+#lowercase letters.
+#Sample input: “abcSdefPghijQkl”
+#Expected Output: No. of Uppercase characters : 3 No. of Lower case Characters : 12
+
+def fun(sample):
+    upper = 0
+    lower = 0
+    for i in sample:
+        if i.isupper():
+            upper = upper + 1
+        if i.islower():
+            lower = lower +1
+    print("No. of Uppercase characters :", upper," No. of Lower case Characters :", lower)
+
+fun("abcSdefPghijQkl")
+
+
+#3. Create a function that takes a list and returns a new list with unique elements of the 
+#first list.
+
+def uniqueL(l):
+    list2 = []
+    for i in l:
+        if i not in list2:
+            list2.append(i)
+    return list2
+
+print(uniqueL([1,8,4,6,9,0,7,5,3,2,1,3,6,8]))
+
+
+#4. Write a program that accepts a hyphen-separated sequence of words as input 
+#and prints the words in a hyphen-separated sequence after sorting them alphabetically.
+
+n=input("enter the string: ") 
+l=n.split('-') 
+l.sort() 
+print('-'.join(l))
+
+
+#5. Write a program that accepts a sequence of lines as input and prints the lines after making all
+#characters in the sentence capitalized.
+#Sample input: Hello world Practice makes man perfect
+#Expected output: HELLO WORLD PRACTICE MAKES MAN PERFECT
+
+lines = input("enter a line to capitalize")
+up = lines.upper()
+print("capitalized line:",up)
+
+
+#6. Define a function that can receive two integral numbers in string form and compute their sum 
+#and print it in the console.
+
+def sum(a,b):
+    c = int(a) + int(b)
+    return c
+
+num1 = eval(input("enter a number"))
+num2 = eval(input("enter another number"))
+sum = sum(num1,num2)
+print ("Sum = ", sum)
+
+
+#7. Define a function that can accept two strings as input and print the string with the maximum length in the console. 
+#If two strings have the same length, then the function should print both the strings line by line.
+
+def maxlen(a,b):
+    if len(a) > len(b): print(a)
+    elif len (b) > len (a): print(b)
+    else: print(a,"\n",b)
+
+str1 = input(str("enter First String: "))
+str2 = input(str("enter 2nd String: "))
+maxlen(str1,str2)
+
+
+#8. Define a function which can generate and print a tuple where the values are square of numbers
+#between 1 and 20 (both 1 and 20 included).
+
+def sqr():
+    tup = list()
+    n = 20
+    for i in range(1,n+1):
+        tup.append(i**2) 
+    print(tup)
+
+sqr()
+
+
+#9. Write a function called showNumbers that takes a parameter called limit. 
+#It should print all the numbers between 0 and limit with a label to identify the even and odd numbers.
+
+def showNumbers(limit):
+    for i in range(0,limit):
+        if i % 2 == 0: print(i,"even")
+        else: print(i,"odd")
+
+showNumbers(3)
+
+
+#10. Write a program which uses filter() to make a list whose elements are even numbers 
+#between 1 and 20 (both included)
+
+lis1 = ()
+r = range(1,21)
+is_even = lambda x: x % 2 == 0
+lis1 = list(filter(is_even, r))
+print(lis1)
+
+
+#11. Write a program which uses map() and filter() to make a list 
+#whose elements are squares of even numbers in [1,2,3,4,5,6,7,8,9,10].
+
+lis = [1,2,3,4,5,6,7,8,9,10]
+squaredNumbers = map(lambda x: x**2, lis)
+even_num = filter(lambda x: x%2 == 0, squaredNumbers)
+print(even_num)
+
+
+#12. Write a function to compute 5/0 and use try/except to catch the exceptions.
+
+def div():
+    return 5/0
+try:
+    div()
+
+except ZeroDivisionError: print ("division by zero!")
+
+
+#13. Flatten the list [1,2,3,4,5,6,7] into 1234567 using reduce().
+from functools import reduce
+lst = [1,2,3,4,5,6,7]
+lst = reduce(lambda x, y: 10 * x + y, lst)
+print(lst)
+
+
+#14. Write a program in Python to find the values which are not divisible by 3 but are a multiple of 7.
+#Make sure to use only higher order functions.
+
+def is_true(x):
+    for i in x:
+        if i % 7 == 0 and i / 3 != 0:
+            return x
+
+integers = [2,3,4,5,677,8,84232,45637,1231]
+is_true(integers)
+num = filter(is_true, integers)
+print(num)
+
+integers = range(0, 10)
+l = list(map(lambda x: x %7 == 0, integers))
+a = filter(lambda x: x/3 != 0, l)
+print(a)
+
+
+#15. Write a program in Python to multiply the elements of a list by itself using a traditional function
+#and pass the function to map() to complete the operation.
+
+numbers = [1,2,4,7,8,52,61,99]
+def multiply(nums):
+    return nums*nums
+result = map(multiply,numbers)
+print(list(result))
+
+
+#16. What is the output of the following codes:
+#(i) 
+def foo(): 
+    try: 
+        return 1 
+    finally: 
+        return 2
+k = foo()
+print(k)
+
+# output: 2
+
+#(ii)
+def a(): 
+    try:
+        f(x, 4)
+    finally:
+        print('after f') 
+        print('after f?')
+a()
+
+#output:NameError: name 'f' is not defined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
